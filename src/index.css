@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 25% 97%;
+    --foreground: 220 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    --primary: 190 95% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 65% 70%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 170 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 90%;
+    --ring: 210 80% 60%;
+
+    --radius: 1rem;
+
+    /* Glassmorphic effects */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-shadow: 220 25% 50% / 0.1;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 80% 60%) 0%, hsl(260 60% 75%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 25% 98%) 0%, hsl(220 25% 95%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.9) 0%, hsl(220 25% 98% / 0.8) 100%);
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px 0 hsl(var(--glass-shadow));
+    --shadow-soft: 0 4px 16px 0 hsl(220 25% 50% / 0.08);
+    --shadow-hover: 0 12px 48px 0 hsl(220 25% 50% / 0.15);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .dark {
+    --background: 220 30% 10%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 25% 15%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 25% 15%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 190 95% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 65% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 170 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 25%;
+    --input: 220 20% 20%;
+    --ring: 210 80% 55%;
+
+    --glass-bg: 220 25% 15% / 0.7;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-shadow: 220 30% 10% / 0.3;
+    
+    --shadow-glass: 0 8px 32px 0 hsl(var(--glass-shadow));
+    --shadow-soft: 0 4px 16px 0 hsl(220 30% 0% / 0.3);
+    --shadow-hover: 0 12px 48px 0 hsl(220 30% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* Glassmorphic utilities */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-smooth;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
