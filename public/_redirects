@@ -1,0 +1,5 @@
+# API proxy first (optional, if you proxy to a separate backend)
+#/api/*  https://api.yourdomain.com/api/:splat  200
+
+# SPA fallback
+/*      /index.html                               200
