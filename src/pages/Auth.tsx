@@ -104,7 +104,7 @@ const Auth = () => {
             <BookOpen className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Welcome to StudySync
+            Welcome to EduStream
           </h1>
           <p className="text-muted-foreground mt-2">
             Sign in or create an account to get started

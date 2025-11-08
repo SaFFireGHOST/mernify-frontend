@@ -188,7 +188,7 @@ const Dashboard = () => {
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            StudySync
+            EduStream
           </h1>
 
           {/* Conditional Auth Button */}
