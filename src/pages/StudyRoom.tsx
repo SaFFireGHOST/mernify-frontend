@@ -119,7 +119,7 @@ const StudyRoom = () => {
 
       // call backend to update room.video_url
       const token = localStorage.getItem('token'); // or pull from context if you have it
-      const res = await fetch(`/api/rooms/${encodeURIComponent(roomId)}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/rooms/${encodeURIComponent(roomId)}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

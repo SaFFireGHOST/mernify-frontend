@@ -54,7 +54,7 @@ const Dashboard = () => {
 
   // helper to fetch rooms from backend
   const getRoomsApi = async ({ limit = 50, offset = 0 } = {}) => {
-    const url = `/api/rooms?limit=${limit}&offset=${offset}`; // uses Vite proxy in dev
+    const url = `${import.meta.env.VITE_BACKEND_URL}/api/rooms?limit=${limit}&offset=${offset}`; // uses Vite proxy in dev
     const res = await fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
