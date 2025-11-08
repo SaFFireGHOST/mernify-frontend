@@ -40,7 +40,7 @@ const RoomCard = ({ id, title, subject, thumbnail, activeMembers, totalDuration 
             {title}
           </h3>
 
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
+          {/* <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
               <span>{totalDuration}</span>
@@ -49,7 +49,7 @@ const RoomCard = ({ id, title, subject, thumbnail, activeMembers, totalDuration 
               <Users className="w-4 h-4" />
               <span>{activeMembers} active</span>
             </div>
-          </div>
+          </div> */}
 
           {/* User Avatars */}
           <div className="flex items-center gap-2 pt-2 border-t border-border/50">
@@ -62,9 +62,7 @@ const RoomCard = ({ id, title, subject, thumbnail, activeMembers, totalDuration 
                 </Avatar>
               ))}
             </div>
-            {activeMembers > 4 && (
-              <span className="text-xs text-muted-foreground">+{activeMembers - 4} more</span>
-            )}
+           
           </div>
         </div>
       </motion.div>
