@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(data.user);
     setToken(data.token);
     localStorage.setItem("token", data.token);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   const signUp = async (username: string, password: string) => {
@@ -95,7 +95,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(data.user);
     setToken(data.token);
     localStorage.setItem("token", data.token);
-    navigate("/"); // Redirect to dashboard
+    navigate("/dashboard"); // Redirect to dashboard
   };
 
   const signOut = () => {
