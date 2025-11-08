@@ -122,7 +122,7 @@ const Dashboard = () => {
     thumbnail?: string | null;
   }) => {
     const token = localStorage.getItem('token'); // or get from context
-    const res = await fetch('/api/rooms', {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/rooms`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

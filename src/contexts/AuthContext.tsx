@@ -32,10 +32,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (storedToken) {
         try {
           // Use your /api/protected route to verify the token
-          const res = await fetch('/api/protected', {
-            headers: {
-              'Authorization': `Bearer ${storedToken}`,
-            },
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/protected`, {
+            headers: { Authorization: `Bearer ${storedToken}` },
           });
 
           if (res.ok) {
@@ -62,7 +60,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const signIn = async (username: string, password: string) => {
-    const res = await fetch('/api/auth/signin', {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -81,7 +79,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const signUp = async (username: string, password: string) => {
-    const res = await fetch('/api/auth/signup', {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),

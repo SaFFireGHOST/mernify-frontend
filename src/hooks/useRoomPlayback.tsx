@@ -69,7 +69,7 @@ export default function useRoomPlayback(roomId: number | string, onRemoteUpdate:
     // send update to your server, not supabase anon
     // call your backend route /api/room-playback which upserts with service key
     try {
-      const res = await fetch('/api/room-playback', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/room-playback`, {
         method: 'POST',
         headers: {
               'Content-Type': 'application/json',
