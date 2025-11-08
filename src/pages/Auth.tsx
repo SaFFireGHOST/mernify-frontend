@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@/hooks/use-auth"; // Import the new useAuth hook
-import { BookOpen } from "lucide-react";
+import { BookOpen, ArrowLeft } from "lucide-react";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -87,9 +87,19 @@ const Auth = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-md"
+        className="relative w-full max-w-md"
       >
-        <div className="text-center mb-8">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="absolute top-4 left-4 z-10"
+          onClick={() => navigate("/")}
+          aria-label="Back to landing page"
+        >
+          <ArrowLeft className="h-10 w-10" />
+        </Button>
+
+        <div className="text-center mb-8 pt-4">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mb-4">
             <BookOpen className="w-8 h-8 text-white" />
           </div>

@@ -15,10 +15,10 @@ interface AIMessage {
 
 type Props = {
   userId?: string | null;  // <-- pass your auth user id if available
-  apiBase?: string;        // optional (default localhost)
+  
 };
 
-const AIBotPanel = ({ userId = null, apiBase = "http://localhost:4000" }: Props) => {
+const AIBotPanel = ({ userId = null }: Props) => {
   const { roomId } = useParams<{ roomId: string }>();
   const [messages, setMessages] = useState<AIMessage[]>([]);
   const [newQuestion, setNewQuestion] = useState("");
@@ -34,7 +34,7 @@ const AIBotPanel = ({ userId = null, apiBase = "http://localhost:4000" }: Props)
     let isCancelled = false;
     (async () => {
       try {
-        const res = await fetch(`${apiBase}/api/ai/history?room_id=${roomId}&limit=500`);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ai/history?room_id=${roomId}&limit=500`);
         const data = await res.json();
         if (!isCancelled && Array.isArray(data?.messages)) {
           // Map DB rows to UI shape
@@ -50,7 +50,7 @@ const AIBotPanel = ({ userId = null, apiBase = "http://localhost:4000" }: Props)
       }
     })();
     return () => { isCancelled = true; };
-  }, [roomId, apiBase]);
+  }, [roomId]);
 
   // 2) Realtime subscription to new inserts for this room
   useEffect(() => {
@@ -89,7 +89,7 @@ const AIBotPanel = ({ userId = null, apiBase = "http://localhost:4000" }: Props)
 
     try {
       // Backend will insert both user and assistant messages
-      const res = await fetch(`${apiBase}/api/ai/ask`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/ai/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
